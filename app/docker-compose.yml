@@ -1,0 +1,12 @@
+version: "3.9"
+
+services:
+  web:
+    build: .
+    container_name: puntosred_web
+    ports:
+      - "80:80"
+    volumes:
+      # Mantiene el archivo SQLite aunque el contenedor se reconstruya.
+      - ./data:/var/www/html/data
+    restart: always
